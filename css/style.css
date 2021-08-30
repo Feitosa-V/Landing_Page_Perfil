@@ -19,14 +19,10 @@ h1{
 
 /* HEADER */
 
-header{
-      background: url(img/header.jpg) center;
-      background-size: cover;
-}
-
 nav{
-      margin-left: 29%;
-      padding: 80px 0;
+      /* margin-left: 29%; */
+      background-color: rgba(131, 131, 131, 0.61);
+      padding: 60px 0;
 }
 
 ul{
@@ -37,7 +33,7 @@ ul{
 li a{
       padding-left: 22px;
       text-decoration: none;
-      color: #fff;
+      color: rgb(0, 0, 0);
       font-weight: bold;
 }
 
@@ -56,7 +52,7 @@ li a:hover{
 }
 
 #apresentacao h1{
-      margin-left: 20px;
+      margin-top: 140px;
 }
 
 .apresentation p {
@@ -88,8 +84,7 @@ li a:hover{
 
 .music{
       display: inline-block;
-      margin-right: 0px;
-      margin-left: 17px;
+      margin-left: 6px;
       background-color: rgba(141, 128, 128, 0.123);
       border-radius: 5px;
 }
@@ -125,7 +120,7 @@ li a:hover{
 .hobbie{
       display: inline-block;
       margin-top: 100px;
-      margin-left: 3%;
+      margin-left: 2%;
 }
 
 .hobbie h2{
@@ -150,7 +145,7 @@ li a:hover{
 .places{
       display: inline-block;
       margin-top: 90px;
-      margin-left: 30px;
+      margin-left: 1%;
 }
 
 .places img{
@@ -164,12 +159,14 @@ li a:hover{
 }
 
 
+
+
 /* **************************************************************** */
 
 
 /* CONTATO */
 
-.container{
+.container_social{
       margin-left: 510px;
 }
 
