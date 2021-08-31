@@ -1,3 +1,9 @@
+<?php
+
+      session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
       <head>
@@ -92,8 +98,29 @@
             </div>
             <section id="musicas">
                   <h1>Músicas Favoritas</h1>
+                  <form action="musicas.php" method="POST">
+                        <label for="imagem">Imagem</label>
+                        <input type="text" placeholder="Insira a url da imagem" name="imagem" maxlength="100">
+                        <label for="nome">Nome</label>
+                        <input type="text" placeholder="Insira o nome da Música"
+                        name="nome" maxlength="50">
+                        <label for="iframe">Iframe</label>
+                        <input type="text" placeholder="Insira a url incorporada"
+                        name="iframe" maxlength="200">
+                        <input type="submit" value="Inserir" >
+                  </form>
+
                   <div class="music">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/715%2BoHIdRTL._AC_SX425_.jpg" alt="">
+                        <?php
+                              require_once 'musicas.php';
+                              //var_dump($res);
+                              foreach($res as $images){
+                                    //$img = $images;
+                                    ?> <img src="<?php $images ?>"> 
+                              <?php } ?>
+                               
+                        
+                        <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/715%2BoHIdRTL._AC_SX425_.jpg" alt=""> -->
                         <p>SWEET CHILD O' MINE</p>
                         <audio src="audio/sweet.mp3" controls></audio>
                         <div class="modal fade" id="modal-mensagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -368,4 +395,4 @@
            <!-- Fim Footer -->
 
       </body>
-</html>
+</html> 
