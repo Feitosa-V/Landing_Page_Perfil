@@ -110,23 +110,31 @@
                         <input type="submit" value="Inserir" >
                   </form>
 
+                  <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/715%2BoHIdRTL._AC_SX425_.jpg" alt=""> -->
+
                   <div class="music">
                         <?php
                               require_once 'musicas.php';
-                              //var_dump($res);
                               $res = array();
                               $cmd = $pdo->query("SELECT imagem FROM musicas");
                               $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
                               
                               foreach($res as $images){
-                                    //print_r($images) ;
                                     $img = implode(",",$images);
                                     ?> <img src="<?php echo $img ?>"> 
                               <?php } ?>
                                
+                        <?php
+                              $res2 = array();
+                              $cmd2 = $pdo->query("SELECT nome FROM musicas");
+                              $res2 = $cmd2->fetchAll(PDO::FETCH_ASSOC);
+                              
+                              foreach($res2 as $nomes){
+                                    $nome = implode(",",$nomes);
+                                    ?> <p><?php echo $nome ?></p> 
+                              <?php } ?> 
+
                         
-                        <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/715%2BoHIdRTL._AC_SX425_.jpg" alt=""> -->
-                        <p>SWEET CHILD O' MINE</p>
                         <audio src="audio/sweet.mp3" controls></audio>
                         <div class="modal fade" id="modal-mensagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
@@ -136,8 +144,18 @@
                                                 </button>
 
                                                 <div>
-                                                      <iframe width="100%" height="350" src="https://www.youtube.com/embed/BAjP9eBskcw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                                <?php
+                                                $res3 = array();
+                                                $cmd3 = $pdo->query("SELECT iframe FROM musicas");
+                                                $res3 = $cmd3->fetchAll(PDO::FETCH_ASSOC);
+                                                
+                                                foreach($res3 as $iframes){
+                                                      $iframe = implode(",",$iframes);
+                                                      ?> <iframe width="100%" height="350" src="<?php echo $iframe ?>">
                                                       </iframe>
+                                                <?php } ?> 
+                                                      
+                                                      <p></p> 
                                                 </div>
                                           </div>
                                     </div>
