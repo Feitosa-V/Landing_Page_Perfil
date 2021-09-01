@@ -94,7 +94,6 @@ function setMusic(music) {
     $('input[name="nome"]').val(music.nome);
     $('input[name="iframe"]').val(music.iframe);
 
-    $('#inputForm').val('teste');
 }
 
 
