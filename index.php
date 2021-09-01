@@ -26,7 +26,7 @@
             <script src="js/magnific-popup.js"></script>
             <script src="js/script.js"></script>
 
-            <title>DESAFIO 2 - Landing Page</title>
+            <title>DESAFIO 4 - Landing Page</title>
       </head>
       <body>
 
