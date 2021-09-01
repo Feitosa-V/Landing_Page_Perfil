@@ -114,9 +114,14 @@
                         <?php
                               require_once 'musicas.php';
                               //var_dump($res);
+                              $res = array();
+                              $cmd = $pdo->query("SELECT imagem FROM musicas");
+                              $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
+                              
                               foreach($res as $images){
-                                    //$img = $images;
-                                    ?> <img src="<?php $images ?>"> 
+                                    //print_r($images) ;
+                                    $img = implode(",",$images);
+                                    ?> <img src="<?php echo $img ?>"> 
                               <?php } ?>
                                
                         
