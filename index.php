@@ -98,184 +98,40 @@
             </div>
             <section id="musicas">
                   <h1>Músicas Favoritas</h1>
-                  <form action="musicas.php" method="POST">
-                        <label for="imagem">Imagem</label>
-                        <input type="text" placeholder="Insira a url da imagem" name="imagem" maxlength="100">
-                        <label for="nome">Nome</label>
-                        <input type="text" placeholder="Insira o nome da Música"
-                        name="nome" maxlength="50">
-                        <label for="iframe">Iframe</label>
-                        <input type="text" placeholder="Insira a url incorporada"
-                        name="iframe" maxlength="200">
-                        <input type="submit" value="Inserir" >
+
+                  <form id="cadastraMusica" method="POST" >
+
+                        <input type="hidden" >
+                        <div class="form-group">
+                              <label for="imagem">Imagem</label>
+                              <input class="form-control w-25" type="text" placeholder="Insira a url da imagem" name="imagem" maxlength="150">
+
+                        </div>
+                        
+                        <div class="form-group">
+                              <label for="nome">Nome</label>
+                              <input class="form-control w-25"type="text" placeholder="Insira o nome da Música" name="nome" maxlength="50">
+                        </div>
+
+                        <div>
+                              <label for="iframe">Iframe</label>
+                              <input class="form-control w-25" type="text" placeholder="Insira a url incorporada" name="iframe" maxlength="200">
+                        </div>
+
+                        <?php
+                               require_once 'musicas.php';
+                               if(isset($_POST['id'])){
+                                    ?> <input class="btn btn-success mt-2 mb-3" type="button" onclick="updateMusica()" value="Atualizar">
+                               <?php } else {
+                                    ?><input class="btn btn-success mt-2 mb-3" type="button" onclick="cadastrarMusica()" value="Inserir">
+                               <?php } ?>
+                              
                   </form>
 
                   <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/715%2BoHIdRTL._AC_SX425_.jpg" alt=""> -->
 
-                  <div class="music">
-                        <?php
-                              require_once 'musicas.php';
-                              $res = array();
-                              $cmd = $pdo->query("SELECT imagem FROM musicas");
-                              $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
-                              
-                              foreach($res as $images){
-                                    $img = implode(",",$images);
-                                    ?> <img src="<?php echo $img ?>"> 
-                              <?php } ?>
-                               
-                        <?php
-                              $res2 = array();
-                              $cmd2 = $pdo->query("SELECT nome FROM musicas");
-                              $res2 = $cmd2->fetchAll(PDO::FETCH_ASSOC);
-                              
-                              foreach($res2 as $nomes){
-                                    $nome = implode(",",$nomes);
-                                    ?> <p><?php echo $nome ?></p> 
-                              <?php } ?> 
-
-                        
-                        <audio src="audio/sweet.mp3" controls></audio>
-                        <div class="modal fade" id="modal-mensagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                    <div class="modal-content">
-                                          <div class="modal-body">
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </button>
-
-                                                <div>
-                                                <?php
-                                                $res3 = array();
-                                                $cmd3 = $pdo->query("SELECT iframe FROM musicas");
-                                                $res3 = $cmd3->fetchAll(PDO::FETCH_ASSOC);
-                                                
-                                                foreach($res3 as $iframes){
-                                                      $iframe = implode(",",$iframes);
-                                                      ?> <iframe width="100%" height="350" src="<?php echo $iframe ?>">
-                                                      </iframe>
-                                                <?php } ?> 
-                                                      
-                                                      <p></p> 
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
-
-
-                        <div class="container row ">
-                              <button type="button" class="btn btn-danger m-auto btnmusic" data-bs-toggle="modal" data-bs-target="#modal-mensagem">Acessar pelo Youtube</button>
-                        </div>             
-                        
-                  </div>
-
-                  <!-- FIM PRIMEIRA MUSICA -->
-
-                  <div class="music">
-                        <img src="https://studiosol-a.akamaihd.net/uploadfile/letras/albuns/9/e/3/4/581621497018776.jpg" alt="">
-                        <p>THE NIGHT WE MET</p>
-                        <audio src="audio/night.mp3" controls></audio>
-                        <div class="modal fade" id="modal-mensagem2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                    <div class="modal-content">
-                                          <div class="modal-body">
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </button>
-
-                                                <div>
-                                                      <iframe width="100%" height="350" src="https://www.youtube.com/embed/KtlgYxa6BMU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                                                      </iframe>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
-
-
-                        <div class="container row ">
-                              <button type="button" class="btn btn-danger m-auto btnmusic" data-bs-toggle="modal" data-bs-target="#modal-mensagem2">Acessar pelo Youtube</button>
-                        </div>  
-                  </div>
-
-                  <!-- FIM SEGUNDA MÚSICA -->
-
-                  <div class="music">
-                        <img src="https://i1.sndcdn.com/artworks-T5KqOdidfrbpyddU-sGIJsA-t500x500.jpg" alt="">
-                        <p>BLINDING LIGHTS</p>
-                        <audio src="audio/blinding.mp3" controls></audio>
-                        <div class="modal fade" id="modal-mensagem3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                    <div class="modal-content">
-                                          <div class="modal-body">
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </button>
-
-                                                <div>
-                                                      <iframe width="100%" height="350" src="https://www.youtube.com/embed/E7XwtUtW5js" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
-
-
-                        <div class="container row ">
-                              <button type="button" class="btn btn-danger m-auto btnmusic" data-bs-toggle="modal" data-bs-target="#modal-mensagem3">Acessar pelo Youtube</button>
-                        </div>  
-                  </div>
-
-                  <!-- FIM TERCEIRA MÚSICA -->
-
-                  <div class="music">
-                        <img src="https://slm-assets.secondlife.com/assets/22442068/view_large/118593929.jpg?1545392566" alt="">
-                        <p>LOSING MY RELIGION</p>
-                        <audio src="audio/losing.mp3" controls></audio>
-                        <div class="modal fade" id="modal-mensagem4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                    <div class="modal-content">
-                                          <div class="modal-body">
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </button>
-
-                                                <div>
-                                                      <iframe width="100%" height="350" src="https://www.youtube.com/embed/vPTyg4F9Ovk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
-
-
-                        <div class="container row ">
-                              <button type="button" class="btn btn-danger m-auto btnmusic" data-bs-toggle="modal" data-bs-target="#modal-mensagem4">Acessar pelo Youtube</button>
-                        </div>  
-                  </div>
-
-                  <!-- FIM QUARTA MÚSICA -->
-
-                  <div class="music">
-                        <img src="https://www.vagalume.com.br/skank/discografia/estandarte.jpg" alt="">
-                        <p>AINDA GOSTO DELA</p>
-                        <audio src="audio/ainda.mp3" controls></audio>
-                        <div class="modal fade" id="modal-mensagem5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                    <div class="modal-content">
-                                          <div class="modal-body">
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </button>
-
-                                                <div>
-                                                      <iframe width="100%" height="350" src="https://www.youtube.com/embed/NdtXoQknQUo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
-
-
-                        <div class="container row ">
-                              <button type="button" class="btn btn-danger m-auto btnmusic" data-bs-toggle="modal" data-bs-target="#modal-mensagem5">Acessar pelo Youtube</button>
-                        </div>  
+                  <div id="music-content" class="music">
+                       
                   </div>
 
                   <!-- FIM QUINTA MÚSICA -->

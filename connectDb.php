@@ -7,7 +7,4 @@
             echo "Erro do banco" . $e->getMessage();
       }
       
-      
-      
-
 ?>
