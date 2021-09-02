@@ -232,29 +232,30 @@
                               <p>GITHUB</p>
                         </div>
 
-                        <form action="">
+                        <form action="envia_form.php" method="post" name="form">
                               <div class="form-group">
-                                    <label for="">Nome</label>
-                                    <input style="min-width:500px;" class="form-control" type="text" placeholder="Insira seu nome" required>
+                                    <label for="nome">Nome</label>
+                                    <input  class="form-control w-50" type="text" placeholder="Insira seu nome " name="nome" required>
                               </div>
 
                               <div class="form-group">
-                                    <label for="">Telefone</label>
-                                    <input class="form-control" type="tel" placeholder="Insira seu telefone" required>
+                                    <label for="telefone" class="mt-2">Telefone</label>
+                                    <input class="form-control w-50" type="tel" placeholder="Insira seu telefone" name="telefone" required>
                               </div>
 
                               <div class="form-group">
-                                    <label for="">E-mail</label>
-                                    <input class="form-control" type="email" placeholder="Insira seu e-mail" required>
+                                    <label for="email" class="mt-2">E-mail</label>
+                                    <input class="form-control w-50" type="email" placeholder="Insira seu e-mail" name="email" required>
                               </div>
                               
                               <div class="form-group">
-                                    <label for="">Mensagem</label>
-                                    <textarea class="form-control" name="" id="" cols="29" rows="4"></textarea>
+                                    <label for="mensagem" class="mt-2">Mensagem</label>
+                                    <textarea style="" class="form-control w-50" name="mensagem" id="" cols="29" rows="4"></textarea>
                               </div>
                               
                               <br>
-                              <button class="btn btn-primary"type="button">Enviar</button>
+                              
+                              <input type="submit" class="btn btn-primary" name="submit" value="Enviar">
                         </form>
                  </div>
 
