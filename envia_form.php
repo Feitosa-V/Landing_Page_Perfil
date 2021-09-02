@@ -12,6 +12,8 @@
     $telefone = $_POST['telefone'];
     $emailU = $_POST['email'];
     $mensagem = $_POST['mensagem'];
+    $ip = $_SERVER["REMOTE_ADDR"];
+    $SO = PHP_OS;
 
     $email = new PHPMailer();
     $email->isSMTP();
@@ -24,7 +26,7 @@
     $email->Password = "tuquinha1";
     $email->Subject = $assunto;
     $email->setFrom("testephpmailer02@gmail.com");
-    $email->Body = "Nome: " . $nome . "\n\r" . "Telefone: " . $telefone . "\n\r" . "Email: " . $emailU . "\n\r" ."Mensagem: " . $mensagem . "";
+    $email->Body = "Nome: " . $nome . "\n\r" . "Telefone: " . $telefone . "\n\r" . "Email: " . $emailU . "\n\r" ."Mensagem: " . $mensagem . "\n\r" . "IP:" . $ip . "\n\r" . "Sistema Operacional: " . $SO . "";
     $email->addAddress("testephpmailer02@gmail.com");
 
     if($email->Send()){
@@ -32,8 +34,7 @@
     } else {
         print "O email não foi enviado";
     }
-    $email->smtpClose()
-
+    $email->smtpClose();
 
 
     // function get_client_ip() {
