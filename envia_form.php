@@ -7,20 +7,24 @@
     require 'PHPMailer/src/PHPMailer.php';
     require 'PHPMailer/src/SMTP.php';
 
-    $email = new PHPMailer();
+    $nome = $_POST['nome'];
+    $telefone = $_POST['telefone'];
+    $emailU = $_POST['email'];
+    $mensagem = $_POST['mensagem'];
 
+    $email = new PHPMailer();
     $email->isSMTP();
     $email->Host = "smtp.gmail.com";
     $email->SMTPAuth = "true";
     $email->SMTPSecure = "tls";
     $email->Port = "587";
 
-    $email->username = "vifesi4321@gmail.com";
-    $email->password = "vifesi4321@gmail.com";
+    $email->Username = "testephpmailer02@gmail.com";
+    $email->Password = "tuquinha1";
     $email->Subject = "Email de teste a partir do localhost";
-    $email->setFrom("vifesi4321@gmail.com");
-    $email->Body = "Email de teste a partir do localhost";
-    $email->addAdress("vifesi4321@gmail.com");
+    $email->setFrom("testephpmailer02@gmail.com");
+    $email->Body = "Nome: " . $nome . "\n\r" . "Telefone: " . $telefone . "\n\r" . "Email: " . $emailU . "\n\r" ."Mensagem: " . $mensagem . "";
+    $email->addAddress("testephpmailer02@gmail.com");
 
     if($email->Send()){
         print "O email foi enviado";
