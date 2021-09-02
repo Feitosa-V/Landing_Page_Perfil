@@ -25,6 +25,7 @@ function cadastrarMusica() {
             imagem : $('input[name="imagem"]').val(),
             nome : $('input[name="nome"]').val(),
             iframe : $('input[name="iframe"]').val(),
+            id : $('input[name="id"]').val(),
         },
         dataType: 'json'
     }).always(function(response){
@@ -64,13 +65,12 @@ function deleteMusic(id) {
 }
 
 function updateMusic(id) {
-    
 
     $.ajax({
         method: "POST",
         url: 'musicas.php',
         data: {            
-            request : 'update',
+            request : 'Update',
             id : id,
             imagem : $('input[name="imagem"]').val(),
             nome : $('input[name="nome"]').val(),
@@ -88,11 +88,15 @@ function updateMusic(id) {
         }
     });
 }
+
 function setMusic(music) {
-    
     $('input[name="imagem"]').val(music.imagem);
     $('input[name="nome"]').val(music.nome);
     $('input[name="iframe"]').val(music.iframe);
+    $('input[name="id"]').val(music.id);
+    //$('#teste').val('Atualizar');
+
+    
 
 }
 
@@ -112,10 +116,10 @@ function loadMusic() {
         if(musics.length > 0) {
             for(i in musics) {
                 template += '\
-        <div class="music">\
-                        <img src="'+musics[i].imagem+'" alt="">\
+                <div class="music">\
+                        <img src="'+musics[i].imagem+'" alt="" style="display:block;margin-left: auto;margin-right: auto">\
                         <p>'+musics[i].nome+'</p>\
-                        <audio class="mb-2 " src="audio/night.mp3" controls></audio>\
+                        <audio id="audioMusic" class="mb-2 " src="audio/night.mp3" controls style="display:block;margin-left: auto;margin-right: auto"></audio>\
                         <div class="modal fade" id="modal-mensagem2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">\
                               <div class="modal-dialog">\
                                     <div class="modal-content">\

@@ -101,7 +101,7 @@
 
                   <form id="cadastraMusica" method="POST" >
 
-                        <input type="hidden" >
+                  <input type="hidden"  name="id" >
                         <div class="form-group">
                               <label for="imagem">Imagem</label>
                               <input class="form-control w-25" type="text" placeholder="Insira a url da imagem" name="imagem" maxlength="150">
@@ -118,13 +118,7 @@
                               <input class="form-control w-25" type="text" placeholder="Insira a url incorporada" name="iframe" maxlength="200">
                         </div>
 
-                        <?php
-                               require_once 'musicas.php';
-                               if(isset($_POST['id'])){
-                                    ?> <input class="btn btn-success mt-2 mb-3" type="button" onclick="updateMusica()" value="Atualizar">
-                               <?php } else {
-                                    ?><input class="btn btn-success mt-2 mb-3" type="button" onclick="cadastrarMusica()" value="Inserir">
-                               <?php } ?>
+                        <input class="btn btn-success mt-2 mb-3" id="teste" type="button" onclick="cadastrarMusica()" value="Inserir">
                               
                   </form>
 
