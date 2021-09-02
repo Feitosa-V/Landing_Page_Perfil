@@ -137,7 +137,7 @@ function loadMusic() {
                         <div class="container row ">\
                               <button type="button" class="btn btn-danger m-auto btnmusic mt-1" data-bs-toggle="modal" data-bs-target="#modal-mensagem2">Acessar pelo Youtube</button>\
                               <button class="btn btn-primary mt-1" onclick="deleteMusic('+musics[i].id+')">Excluir</button>\
-                              <button class="btn btn-secondary mt-1" onclick=\'setMusic('+JSON.stringify(musics[i])+')\'>Editar</button>\
+                              <button class="btn btn-secondary mt-1" name="editar" onclick=\'setMusic('+JSON.stringify(musics[i])+')\'>Editar</button>\
                                                       </div>\
                   </div>';
             }

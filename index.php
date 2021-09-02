@@ -119,7 +119,7 @@
                         </div>
 
                         <input class="btn btn-success mt-2 mb-3" id="teste" type="button" onclick="cadastrarMusica()" value="Inserir">
-                              
+
                   </form>
 
                   <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/715%2BoHIdRTL._AC_SX425_.jpg" alt=""> -->
