@@ -1,4 +1,15 @@
 <?php
+
+      // if(isset($_POST['editar'])){
+      //       $_SESSION['editando'] = true;
+      // }
+
+      // if(isset($_SESSION['editando'])){
+      //       updateMusic();
+      //       unset($_SESSION['editando']);
+      // }else{
+      //       insertMusic();
+      // }
     
       $requestGet = $_GET;
       $requestPOST = $_POST;
@@ -32,6 +43,7 @@
       // }
        
       // header('Location: index.php');
+
 
       function updateMusic(){
             require_once 'connectDb.php';

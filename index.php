@@ -120,7 +120,7 @@
 
                         <?php
                                require_once 'musicas.php';
-                               if(isset($_POST['id'])){
+                               if(isset($_POST['editar'])){
                                     ?> <input class="btn btn-success mt-2 mb-3" type="button" onclick="updateMusica()" value="Atualizar">
                                <?php } else {
                                     ?><input class="btn btn-success mt-2 mb-3" type="button" onclick="cadastrarMusica()" value="Inserir">
