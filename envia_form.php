@@ -7,6 +7,7 @@
     require 'PHPMailer/src/PHPMailer.php';
     require 'PHPMailer/src/SMTP.php';
 
+    $assunto = $_POST['assunto'];
     $nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
     $emailU = $_POST['email'];
@@ -21,7 +22,7 @@
 
     $email->Username = "testephpmailer02@gmail.com";
     $email->Password = "tuquinha1";
-    $email->Subject = "Email de teste a partir do localhost";
+    $email->Subject = $assunto;
     $email->setFrom("testephpmailer02@gmail.com");
     $email->Body = "Nome: " . $nome . "\n\r" . "Telefone: " . $telefone . "\n\r" . "Email: " . $emailU . "\n\r" ."Mensagem: " . $mensagem . "";
     $email->addAddress("testephpmailer02@gmail.com");

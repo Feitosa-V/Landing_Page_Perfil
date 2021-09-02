@@ -234,6 +234,11 @@
 
                         <form action="envia_form.php" method="post" name="form">
                               <div class="form-group">
+                                    <label for="assunto">Assunto</label>
+                                    <input  class="form-control w-50" type="text" placeholder="Insira o assunto" name="assunto" required>
+                              </div>
+
+                              <div class="form-group">
                                     <label for="nome">Nome</label>
                                     <input  class="form-control w-50" type="text" placeholder="Insira seu nome " name="nome" required>
                               </div>
