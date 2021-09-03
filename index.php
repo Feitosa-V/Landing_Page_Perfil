@@ -239,7 +239,7 @@
                               </div>
 
                               <div class="form-group">
-                                    <label for="nome">Nome</label>
+                                    <label for="nome" class="mt-2">Nome</label>
                                     <input  class="form-control w-50" type="text" placeholder="Insira seu nome " name="nome" required>
                               </div>
 
