@@ -94,10 +94,6 @@ function setMusic(music) {
     $('input[name="nome"]').val(music.nome);
     $('input[name="iframe"]').val(music.iframe);
     $('input[name="id"]').val(music.id);
-    //$('#teste').val('Atualizar');
-
-    
-
 }
 
 
@@ -148,47 +144,68 @@ function loadMusic() {
 }
 
 
-function enviarFormulario()
-{
- 
-    //dados a enviar, vai buscar os valores dos campos que queremos enviar para a BD
-    var dadosajax = {
-        'assunto' : $('input[name="assunto"]').val(),
-        //'campo2' : $("#campo2").val()
-    };
-    pageurl = 'envia_form.php';
-    //para consultar mais opcoes possiveis numa chamada ajax
-    //http://api.jquery.com/jQuery.ajax/
-    $.ajax({
- 
-        //url da pagina
-        url: pageurl,
-        //parametros a passar
-        data: dadosajax,
-        //tipo: POST ou GET
-        type: 'POST',
-        //cache
-        cache: false,
-        //se ocorrer um erro na chamada ajax, retorna este alerta
-        //possiveis erros: pagina nao existe, erro de codigo na pagina, falha de comunicacao/internet, etc etc etc
-        error: function(){
-            alert('Erro: Inserir Registo!!');
-        },
-        //retorna o resultado da pagina para onde enviamos os dados
-        success: function(result)
-        { 
-            //se foi inserido com sucesso
-            if($.trim(result) == '1')
-            {
-				alert("O seu registo foi inserido com sucesso!");
-            }
-            //se foi um erro
-            else
-            {
-                alert("Ocorreu um erro ao inserir o seu registo!");
-            }
- 
-        }
-    });
-}
+$(document).ready(function() {
+    $('#submit').click(function() {
+        var assunto = $('#assunto').val();
+        var nome = $('#nome').val();
+        var telefone = $('#telefone').val();
+        var email = $('#email').val();
+        var mensagem = $('#mensagem').val();
 
+        $('#alert').html('');
+        if (assunto == '') {
+            $('#alert').html('Preencher o campo assunto');
+            $('#alert').addClass("alert-danger");
+            return false;
+        }
+
+        $('#alert').html('');
+        if (nome == '') {
+            $('#alert').html('Preencher o campo nome');
+            $('#alert').addClass("alert-danger");
+            return false;
+        }
+
+        $('#alert').html('');
+        if (telefone == '') {
+            $('#alert').html('Preencher o campo telefone');
+            $('#alert').addClass("alert-danger");
+            return false;
+        }
+
+        $('#alert').html('');
+        if (email == '') {
+            $('#alert').html('Preencher o campo email');
+            $('#alert').addClass("alert-danger");
+            return false;
+        }
+
+        $('#alert').html('');
+        if (mensagem == '') {
+            $('#alert').html('Preencher o campo mensagem');
+            $('#alert').addClass("alert-danger");
+            return false;
+        }
+
+        $('#alert').html('');
+        $.ajax({
+            url: 'envia_form.php',
+            method: 'POST',
+            data:{
+                assunto:  $('input[name="assunto"]').val(),
+                nome: $('#nome').val(),
+                telefone: $('input[name="telefone"]').val(),
+                email: $('input[name="email"]').val(),
+                mensagem: $('#mensagem').val(),
+            },
+            success: function(result) {
+                $('form').trigger('reset');
+                $('#alert').addClass('alert-success');
+                $('#alert').fadeIn().html(result);
+                setTimeout(function() {
+                    $('#alert').fadeOut('Slow');
+                },711000)
+            }
+        });
+    });
+});

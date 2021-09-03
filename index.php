@@ -109,12 +109,12 @@
                         </div>
                         
                         <div class="form-group">
-                              <label for="nome">Nome</label>
+                              <label for="nome" class="mt-2">Nome</label>
                               <input class="form-control w-25"type="text" placeholder="Insira o nome da Música" name="nome" maxlength="50">
                         </div>
 
                         <div>
-                              <label for="iframe">Iframe</label>
+                              <label for="iframe" class="mt-2">Iframe</label>
                               <input class="form-control w-25" type="text" placeholder="Insira a url incorporada" name="iframe" maxlength="200">
                         </div>
 
@@ -137,8 +137,27 @@
            <div id="ho">
                   <br>
            </div>
+           
            <section id="hobbies">
                   <h1>Hobbies</h1>
+
+                  <form id="" method="POST" >
+
+                  <input type="hidden"  name="id" >
+                        <div class="form-group">
+                              <label for="nomeHobbie">Nome do  Hobbie</label>
+                              <input class="form-control w-25" type="text" placeholder="Insira o nome do Hobbie" name="nomeHobbie" maxlength="150">
+
+                        </div>
+                        
+                        <div class="form-group">
+                              <label for="lottie" class="mt-2">Lottie Animations</label>
+                              <input class="form-control w-25"type="text" placeholder="Insira o iframe do lottie" name="lottie" maxlength="50">
+                        </div>
+
+                        <input class="btn btn-success mt-2 mb-3" id="teste" type="button" onclick="" value="Inserir">
+
+                  </form>
 
                   <div class="hobbie">
                         <h2>Tocar Violão/Guitarra</h2>
@@ -232,36 +251,38 @@
                               <p>GITHUB</p>
                         </div>
 
-                        <form action="envia_form.php" method="post" name="form">
+                        <form  method="post" name="form">
                               <div class="form-group">
                                     <label for="assunto" class="mt-4">Assunto</label>
-                                    <input  class="form-control w-50" type="text" placeholder="Insira o assunto" name="assunto" required>
+                                    <input  class="form-control w-50" type="text" placeholder="Insira o assunto" name="assunto" id="assunto" >
                               </div>
 
                               <div class="form-group">
                                     <label for="nome" class="mt-2">Nome</label>
-                                    <input  class="form-control w-50" type="text" placeholder="Insira seu nome " name="nome" required>
+                                    <input  class="form-control w-50" type="text" placeholder="Insira seu nome " name="nome" id="nome" >
                               </div>
 
                               <div class="form-group">
                                     <label for="telefone" class="mt-2">Telefone</label>
-                                    <input class="form-control w-50" type="tel" placeholder="Insira seu telefone" name="telefone" required>
+                                    <input class="form-control w-50" type="tel" placeholder="Insira seu telefone" name="telefone" id="telefone" >
                               </div>
 
                               <div class="form-group">
                                     <label for="email" class="mt-2">E-mail</label>
-                                    <input class="form-control w-50" type="email" placeholder="Insira seu e-mail" name="email" required>
+                                    <input class="form-control w-50" type="email" placeholder="Insira seu e-mail" name="email" id="email" >
                               </div>
                               
                               <div class="form-group">
                                     <label for="mensagem" class="mt-2">Mensagem</label>
-                                    <textarea class="form-control w-50" name="mensagem" placeholder="Insira alguma mensagem" id="" cols="29" rows="4"></textarea>
+                                    <textarea class="form-control w-50" id="mensagem" name="mensagem" placeholder="Insira alguma mensagem" cols="29" rows="4"></textarea>
                               </div>
                               
                               <br>
                               
-                              <input type="submit" class="btn btn-primary" name="submit" value="Enviar" onclick="enviarFormulario()">
+                              <input type="button" class="btn btn-primary" id="submit" name="submit" value="Enviar" >
                         </form>
+
+                        <div class="alert" id="alert" role="alert"></div>
                  </div>
 
            </section>
