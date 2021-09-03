@@ -255,7 +255,7 @@
                               
                               <div class="form-group">
                                     <label for="mensagem" class="mt-2">Mensagem</label>
-                                    <textarea style="" class="form-control w-50" name="mensagem" id="" cols="29" rows="4"></textarea>
+                                    <textarea class="form-control w-50" name="mensagem" id="" cols="29" rows="4"></textarea>
                               </div>
                               
                               <br>
