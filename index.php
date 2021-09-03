@@ -234,7 +234,7 @@
 
                         <form action="envia_form.php" method="post" name="form">
                               <div class="form-group">
-                                    <label for="assunto">Assunto</label>
+                                    <label for="assunto" class="mt-4">Assunto</label>
                                     <input  class="form-control w-50" type="text" placeholder="Insira o assunto" name="assunto" required>
                               </div>
 
@@ -255,12 +255,12 @@
                               
                               <div class="form-group">
                                     <label for="mensagem" class="mt-2">Mensagem</label>
-                                    <textarea class="form-control w-50" name="mensagem" id="" cols="29" rows="4"></textarea>
+                                    <textarea class="form-control w-50" name="mensagem" placeholder="Insira alguma mensagem" id="" cols="29" rows="4"></textarea>
                               </div>
                               
                               <br>
                               
-                              <input type="submit" class="btn btn-primary" name="submit" value="Enviar">
+                              <input type="submit" class="btn btn-primary" name="submit" value="Enviar" onclick="enviarFormulario()">
                         </form>
                  </div>
 

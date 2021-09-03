@@ -30,33 +30,15 @@
     $email->addAddress("testephpmailer02@gmail.com");
 
     if($email->Send()){
-        print "O email foi enviado";
+        header("Location: index.php");
+        //echo "O email foi enviado";
     } else {
         print "O email não foi enviado";
     }
     $email->smtpClose();
 
-
-    // function get_client_ip() {
-    //     $ipaddress = '';
-    //     if (isset($_SERVER['HTTP_CLIENT_IP']))
-    //         $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-    //     else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-    //         $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    //     else if(isset($_SERVER['HTTP_X_FORWARDED']))
-    //         $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-    //     else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
-    //         $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-    //     else if(isset($_SERVER['HTTP_FORWARDED']))
-    //         $ipaddress = $_SERVER['HTTP_FORWARDED'];
-    //     else if(isset($_SERVER['REMOTE_ADDR']))
-    //         $ipaddress = $_SERVER['REMOTE_ADDR'];
-    //     else
-    //         $ipaddress = 'UNKNOWN';
-    //     return $ipaddress;
-    // }
-
-    // echo $_SERVER['HTTP_USER_AGENT'];
+    require_once 'connectDb.php';
+    $pdo->query("INSERT INTO contato (assunto, nome, telefone, email, mensagem,ip, sistema_operacional) VALUES ('$assunto','$nome', '$telefone', '$emailU', '$mensagem', '$ip' ,'$SO')");
     
 
 ?>
