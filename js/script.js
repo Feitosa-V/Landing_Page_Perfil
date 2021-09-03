@@ -1,22 +1,31 @@
+//-------------------------------- INICIO MAGNIFIC POPUP ----------------------------------------
+
 $(document).ready(function() {
     $('.image-link').magnificPopup({type:'image'});
     loadMusic();
 });
+//-------------------------------- FIM MAGNIFIC POPUP -------------------------------------------
 
-function removeMapa() {
 
-    var el = document.querySelector("[class='1']");
-    var pa = el ? el.parentNode : null;
+//-------------------------------- INICIO FUNÇÃO REMOVER MAPA ----------------------------------------
 
-    if (pa) {
-        pa.removeChild(el);
-    }
+// function removeMapa() {
 
-};
+//     var el = document.querySelector("[class='1']");
+//     var pa = el ? el.parentNode : null;
+
+//     if (pa) {
+//         pa.removeChild(el);
+//     }
+
+// };
+//-------------------------------- FIM FUNÇÃO REMOVER MAPA ----------------------------------------
+
+
+//-------------------------------- INICIO CRUD MUSICAS ----------------------------------------
 
 function cadastrarMusica() {
     
-
     $.ajax({
         method: "POST",
         url: 'musicas.php',
@@ -42,7 +51,6 @@ function cadastrarMusica() {
 
 
 function deleteMusic(id) {
-    
 
     $.ajax({
         method: "POST",
@@ -142,7 +150,90 @@ function loadMusic() {
         $('#music-content').html(template);
     });
 }
+//-------------------------------- FIM CRUD MUSICAS ----------------------------------------
 
+
+//-------------------------------- INICIO CRUD HOBBIES ----------------------------------------
+
+function cadastrarHobbie() {
+    
+    $.ajax({
+        method: "POST",
+        url: 'hobbies.php',
+        data: {            
+            request : 'Insert',
+            nomeHobbie : $('input[name="nomeHobbie"]').val(),
+            lottie : $('input[name="lottie"]').val(),
+            idHobbie : $('input[name="idHobbie"]').val(),
+        },
+        dataType: 'json'
+    }).always(function(response){
+        if(response.status)
+        {
+            loadHobbie();
+        }
+        else
+        {
+            alert(response.message);
+        }
+    });
+}
+
+function deleteHobbie(id) {
+
+    $.ajax({
+        method: "POST",
+        url: 'hobbies.php',
+        data: {            
+            request : 'Delete',
+            id : id,
+        },
+        dataType: 'json'
+    }).always(function(response){
+        if(response.status)
+        {
+            loadHobbie();
+        }
+        else
+        {
+            alert(response.message);
+        }
+    });
+}
+
+function updateHobbie(id) {
+
+    $.ajax({
+        method: "POST",
+        url: 'hobbies.php',
+        data: {            
+            request : 'Update',
+            id : id,
+            nomeHobbie : $('input[name="nomeHobbie"]').val(),
+            lottie : $('input[name="lottie"]').val(),
+        },
+        dataType: 'json'
+    }).always(function(response){
+        if(response.status)
+        {
+            loadHobbie();
+        }
+        else
+        {
+            alert(response.message);
+        }
+    });
+}
+
+function setHobbie(hobbie) {
+    $('input[name="nomeHobbie"]').val(hobbie.nomeHobbie);
+    $('input[name="lottie"]').val(hobbie.lottie);
+    $('input[name="idHobbie"]').val(hobbie.idHobbie);
+}
+//-------------------------------- FIM CRUD HOBBIES ----------------------------------------
+
+
+//-------------------------------- INICIO PHP MAILER ----------------------------------------
 
 $(document).ready(function() {
     $('#submit').click(function() {
@@ -204,8 +295,10 @@ $(document).ready(function() {
                 $('#alert').fadeIn().html(result);
                 setTimeout(function() {
                     $('#alert').fadeOut('Slow');
-                },711000)
+                },4000)
             }
         });
     });
 });
+
+//-------------------------------- FIM PHP MAILER ----------------------------------------

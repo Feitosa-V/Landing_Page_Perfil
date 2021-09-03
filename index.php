@@ -137,13 +137,13 @@
            <div id="ho">
                   <br>
            </div>
-           
+
            <section id="hobbies">
                   <h1>Hobbies</h1>
 
                   <form id="" method="POST" >
 
-                  <input type="hidden"  name="id" >
+                  <input type="hidden"  name="idHobbie" >
                         <div class="form-group">
                               <label for="nomeHobbie">Nome do  Hobbie</label>
                               <input class="form-control w-25" type="text" placeholder="Insira o nome do Hobbie" name="nomeHobbie" maxlength="150">
@@ -159,7 +159,7 @@
 
                   </form>
 
-                  <div class="hobbie">
+                  <!-- <div class="hobbie">
                         <h2>Tocar Violão/Guitarra</h2>
                         <iframe src="https://embed.lottiefiles.com/animation/31399"></iframe>
                   </div>
@@ -177,6 +177,10 @@
                   <div class="hobbie">
                         <h2>Codar</h2>
                         <iframe src="https://embed.lottiefiles.com/animation/8306"></iframe>
+                  </div> -->
+
+                  <div id="hobbie-content" class="hobbie">
+                       
                   </div>
 
            </section>
@@ -220,11 +224,11 @@
            </section>
            <!-- Fim Lugares -->
 
-           <section>
+           <!-- <section>
                   <h1>Endereço</h1>
                   <iframe class="1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59495.54560239745!2d-45.03337001051831!3d-21.252792039420914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ffd8039b103f9%3A0x39e3fcfba35cb1f3!2sLavras%2C%20MG%2C%2037200-000!5e0!3m2!1spt-BR!2sbr!4v1630338967981!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                   <button id="remove" class="btn btn-danger" onclick="removeMapa()">Remover Mapa</button>
-           </section>
+           </section> -->
 
            <!-- Inicio Contato -->
            <div id="co">
@@ -237,17 +241,17 @@
 
                  <div class="container_social">
                         <div class="social">
-                              <a href="https://api.whatsapp.com/send?phone=5535999026945"><img src="img/whatsapp.png" alt="icone whatsapp"></a>
+                              <a href="https://api.whatsapp.com/send?phone=5535999026945" target="_blank"><img src="img/whatsapp.png" alt="icone whatsapp"></a>
                               <p>WHATSAPP</p>
                         </div>
 
                         <div class="social">
-                              <a href="https://www.instagram.com/feitosa.vinicius/"><img src="img/instagram.png" alt="icone instagram"></a>
+                              <a href="https://www.instagram.com/feitosa.vinicius/" target="_blank"><img src="img/instagram.png" alt="icone instagram"></a>
                               <p>INSTAGRAM</p>
                         </div>
 
                         <div class="social">
-                              <a href="https://github.com/Feitosa-V"><img src="img/github.png" alt="icone github"></a>
+                              <a href="https://github.com/Feitosa-V" target="_blank"><img src="img/github.png" alt="icone github"></a>
                               <p>GITHUB</p>
                         </div>
 
