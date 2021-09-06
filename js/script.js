@@ -161,7 +161,7 @@ function cadastrarHobbie() {
         method: "POST",
         url: 'hobbies.php',
         data: {            
-            request : 'Insert',
+            request : 'InsertH',
             nomeHobbie : $('input[name="nomeHobbie"]').val(),
             lottie : $('input[name="lottie"]').val(),
             idHobbie : $('input[name="idHobbie"]').val(),
@@ -186,7 +186,7 @@ function deleteHobbie(id) {
         url: 'hobbies.php',
         data: {            
             request : 'Delete',
-            id : id,
+            idHobbie : id,
         },
         dataType: 'json'
     }).always(function(response){
@@ -208,7 +208,7 @@ function updateHobbie(id) {
         url: 'hobbies.php',
         data: {            
             request : 'Update',
-            id : id,
+            idHobbie : id,
             nomeHobbie : $('input[name="nomeHobbie"]').val(),
             lottie : $('input[name="lottie"]').val(),
         },
@@ -229,6 +229,36 @@ function setHobbie(hobbie) {
     $('input[name="nomeHobbie"]').val(hobbie.nomeHobbie);
     $('input[name="lottie"]').val(hobbie.lottie);
     $('input[name="idHobbie"]').val(hobbie.idHobbie);
+}
+
+function loadHobbie() {
+ 
+    $.ajax({
+        method: "GET",
+        url: 'hobbies.php',
+        data: {
+            request : 'ListH'
+        },
+        dataType: 'json'
+    }).always(function(hobbie)
+    {
+        let template ='';
+        if(hobbie.length > 0) {
+            for(i in hobbie) {
+                template += '\
+                <div class="hobbie">\
+                            <h2>'+hobbie[i].nomeHobbie+'</h2>\
+                            <iframe src="'+hobbie[i].lottie+'"></iframe>\
+                            <div class="container row ">\
+                                <button class="btn btn-danger mt-1" onclick="deleteHobbie('+hobbie[i].idHobbie+')">Excluir</button>\
+                                <button class="btn btn-secondary mt-1" name="editar" onclick=\'setHobbie('+JSON.stringify(hobbie[i])+')\'>Editar</button>\
+                            </div>\
+                </div>';
+            }
+        }
+        
+        $('#hobbie-content').html(template);
+    });
 }
 //-------------------------------- FIM CRUD HOBBIES ----------------------------------------
 

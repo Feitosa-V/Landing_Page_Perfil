@@ -143,7 +143,8 @@
 
                   <form id="" method="POST" >
 
-                  <input type="hidden"  name="idHobbie" >
+                        <input type="hidden"  name="idHobbie" >
+                        
                         <div class="form-group">
                               <label for="nomeHobbie">Nome do  Hobbie</label>
                               <input class="form-control w-25" type="text" placeholder="Insira o nome do Hobbie" name="nomeHobbie" maxlength="150">
@@ -155,7 +156,7 @@
                               <input class="form-control w-25"type="text" placeholder="Insira o iframe do lottie" name="lottie" maxlength="50">
                         </div>
 
-                        <input class="btn btn-success mt-2 mb-3" id="teste" type="button" onclick="" value="Inserir">
+                        <input class="btn btn-success mt-2 mb-3" type="button" onclick="cadastrarHobbie()" value="Inserir">
 
                   </form>
 

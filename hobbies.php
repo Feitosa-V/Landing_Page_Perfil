@@ -1,25 +1,25 @@
 <?php
 
-    $requestGet = $_GET;
-    $requestPOST = $_POST;
+    $requestGetH = $_GET;
+    $requestPOSTH = $_POST;
 
-    if(isset($requestGet['request']) && $requestGet['request'] == 'List')
+    if(isset($requestGetH['request']) && $requestGetH['request'] == 'ListH')
     {
         loadHobbies();
     }
-    if(isset($requestPOST['request']) && $requestPOST['request'] == 'Insert')
+    if(isset($requestPOSTH['request']) && $requestPOSTH['request'] == 'InsertH')
     {
         insertHobbies();
     }
-    if(isset($requestPOST['request']) && $requestPOST['request'] == 'Delete')
+    if(isset($requestPOSTH['request']) && $requestPOSTH['request'] == 'Delete')
     {
         deleteHobbies();
     }
 
     function deleteHobbies(){
         require_once 'connectDb.php';
-        $id = $_POST['id'];
-        $query = "DELETE FROM hobbies WHERE id = $id";
+        $id = $_POST['idHobbie'];
+        $query = "DELETE FROM hobbies WHERE idHobbie = $id";
         $remover = $pdo->query($query);
         if($remover){
               echo json_encode(["status" => true, "message" => "Sucesso", $query]);
@@ -34,10 +34,10 @@
         require_once 'connectDb.php';
         $nomeHobbie = $_POST['nomeHobbie'] ?? "";
         $lottie = $_POST['lottie'] ?? "";
-        $idHobbie = $_POST['id'] ?? null;
+        $idHobbie = $_POST['idHobbie'] ?? null;
         if($idHobbie){
               $id = $idHobbie;
-              $query = "UPDATE hobbies SET  nomeHobbie='$nomeHobbie', lottie='$lottie' WHERE id = $id";
+              $query = "UPDATE hobbies SET  nomeHobbie='$nomeHobbie', lottie='$lottie' WHERE idHobbie = $id";
               $update = $pdo->query($query);
               if($update){
                     echo json_encode(["status" => true, "message" => "Sucesso", $query]);
@@ -62,7 +62,5 @@
         $remove = $pdo->query("SELECT * FROM hobbies");
         echo json_encode($remove->fetchAll(PDO::FETCH_ASSOC));
     }
-
-
 
 ?>
